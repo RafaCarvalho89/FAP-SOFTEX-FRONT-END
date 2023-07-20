@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>CodePark 07</title>
+</head>
+<body>
+  <div class="instructions">
+
+    <div class="text">
+      <h1>Instruções</h1>
+      <p>Um aluno do ensino fundamental precisa fazer como tarefa de casa a tabuada de alguns números inteiros, como nos exemplos em anexo.</p>
+      <p>Para ajudar esse aluno, você deve elaborar um algoritmo que solicite que seja digitado um número inteiro e que no final imprima o resultado da tabuada desse número.</p>
+    </div>
+
+    <div class="img">
+      <img src="./exemplo.jpg" alt="Exemplo" width="450px">
+    </div>
+
+  </div>
+
+  <div class="container">
+
+      <h1>CodePark-07</h1>
+      <p>Digite um número para gerar sua tabuada:</p>
+
+      <div class="box">
+        <input type="text" id="num" name="num">
+        <input type="button" id="btn" onclick="tabuada()" value="Gerar Tabuada">
+      </div>
+
+      <div id="res"></div>
+
+    </div>
+    
+  </div>
+  <script src="script.js"></script>  
+</body>
+</html>
