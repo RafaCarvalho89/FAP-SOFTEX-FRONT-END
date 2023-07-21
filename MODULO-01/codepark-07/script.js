@@ -1,4 +1,4 @@
-// Se quiser testar no browser é só baixar a pasta com os arquivos e abrir o arquivo html
+// Se quiser testar no browser é só baixar a pasta codepark-07 com os arquivos e abrir o arquivo html
 
 function tabuada() {
 
