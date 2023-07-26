@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Codepark 13</title>
+</head>
+<body>
+  <div class="container">
+    <p>Faça uma função calculadora de dois números com três parâmetros: os dois primeiros serão os números da operação e o terceiro será a entrada que definirá a operação a ser executada. Considera a seguinte definição:
+    <pre>
+      1. Soma
+      2. Subtração
+      3. Multiplicação
+      4. Divisão
+    </pre></p>
+    <p>Caso seja inserido um número de operação que não exista, o resultado deverá ser 0.</p>
+  </div>
+  <div class="container solution">
+    <p>Digite 2 números e a opção referente à operação desejada: </p>
+    <ol>
+      <li>Soma</li>
+      <li>Subtração</li>
+      <li>Multiplicação</li>
+      <li>Divisão</li>
+    </ol>
+    <br>
+    <label for="num1">Primeiro número: </label>
+    <input type="number" id="num1" name="num1">
+    <label for="num2"> | Segundo número: </label>
+    <input type="number" id="num2" name="num2">
+    <label for="operation"> | Opção da operação: </label>
+    <input type="number" id="operation" name="operation">
+    <input type="button" value="Calcular" id="btn" onclick="calc()">
+
+    <div id="res" class="container res"></div>
+  </div>
+  <script src="./index.js"></script>  
+</body>
+</html>
