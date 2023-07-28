@@ -64,7 +64,7 @@
                 check = false;
                 continua = false;
               } else {
-                alert("Resposta inválida, responda com 'S' para sim ou 'N' para não.")
+                alert("Resposta inválida, responda com 'S' para sim ou 'N' para não.");
                 check = true;
               }
             }
@@ -81,19 +81,19 @@
     function add_voto(escolha) {
       switch (escolha) {
         case 889:
-          candidato_X += 1;
+          candidato_X++;
           break;
         case 847:
-          candidato_Y += 1;
+          candidato_Y++;
           break;
         case 515:
-          candidato_Z += 1;
+          candidato_Z++;
           break;
         case 0:
-          branco += 1;
+          branco++;
           break;
         default:
-          branco += 1;
+          branco++;
           break;
       }
     };
@@ -105,34 +105,64 @@
     function mostrarVotos() {
       var vencedor;
 
-      var votos = [candidato_X, candidato_Y, candidato_Z]
+      var votos = [candidato_X, candidato_Y, candidato_Z];
 
-      var ordemVotos = votos.sort()
+      var ordemVotos = votos.sort();
+
+      var empate = 0;
 
       if (ordemVotos[2] == candidato_X) {
-        vencedor = "candidato_X"
+        vencedor = "candidato_X";
       } else if (ordemVotos[2] == candidato_Y) {
-        vencedor = "candidato_Y"
+        vencedor = "candidato_Y";
       } else if (ordemVotos[2] == candidato_Z) {
-        vencedor = "candidato_Z"
+        vencedor = "candidato_Z";
       }
-      res.innerHTML = `
-                        <hr>
-                        <h3>RESULTADO DA VOTAÇÃO</H3>
-                        <p>O vencedor das eleições é o ${vencedor}.</p>
-                        <table border="2" style="border-collapse: collapse;">
-                          <thead>
-                            <tr><th>Candidato</th><th>Qtde de Votos</th></tr>
-                          </thead>
-                          <tbody>
-                            <tr><td>candidato_X</td><td>${candidato_X}</td></tr>
-                            <tr><td>candidato_Y</td><td>${candidato_Y}</td></tr>
-                            <tr><td>candidato_Z</td><td>${candidato_Z}</td></tr>
-                            <tr><td>Voto em branco</td><td>${branco}</td></tr>
-                          </tbody>
-                        </table>
-                        
-      `
+
+      if (vencedor == "candidato_X" && (candidato_X == candidato_Y || candidato_X == candidato_Z)) {
+        empate++;
+      } else if (vencedor == "candidato_Y" && (candidato_Y == candidato_X || candidato_Y == candidato_Z)) {
+        empate++;
+      } else if (vencedor == "candidato_Z" && (candidato_Z == candidato_X || candidato_Z == candidato_Y)) {
+        empate++;
+      }
+      if (empate >= 1) {
+        res.innerHTML = `
+                          <hr>
+                          <h3>RESULTADO DA VOTAÇÃO</H3>
+                          <p>Não houve um vencedor. Aconteceu um empate.</p>
+                          <table border="2" style="border-collapse: collapse;">
+                            <thead>
+                              <tr><th>Candidato</th><th>Qtde de Votos</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td>candidato_X</td><td>${candidato_X}</td></tr>
+                              <tr><td>candidato_Y</td><td>${candidato_Y}</td></tr>
+                              <tr><td>candidato_Z</td><td>${candidato_Z}</td></tr>
+                              <tr><td>Voto em branco</td><td>${branco}</td></tr>
+                            </tbody>
+                          </table>
+                          
+        `
+      } else {
+        res.innerHTML = `
+                          <hr>
+                          <h3>RESULTADO DA VOTAÇÃO</H3>
+                          <p>O vencedor das eleições é o ${vencedor}.</p>
+                          <table border="2" style="border-collapse: collapse;">
+                            <thead>
+                              <tr><th>Candidato</th><th>Qtde de Votos</th></tr>
+                            </thead>
+                            <tbody>
+                              <tr><td>candidato_X</td><td>${candidato_X}</td></tr>
+                              <tr><td>candidato_Y</td><td>${candidato_Y}</td></tr>
+                              <tr><td>candidato_Z</td><td>${candidato_Z}</td></tr>
+                              <tr><td>Voto em branco</td><td>${branco}</td></tr>
+                            </tbody>
+                          </table>
+                          
+        `
+      }
     }
   </script>
 </body>
