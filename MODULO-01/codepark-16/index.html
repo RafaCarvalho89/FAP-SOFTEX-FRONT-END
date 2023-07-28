@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePark 16</title>
+</head>
+<body>
+  <h1>CodePark 16</h1>
+  <p>Desenvolva um código que simule uma eleição com três candidatos.</p>
+  <p>
+    <pre>
+      - candidato_X => 889
+      - candidato_Y => 847
+      - candidato_Z => 515
+      - branco => 0
+    </pre>
+  </p>
+  <p>O código deve perguntar se deseja finalizar a votação depois do voto. Caso o número do voto não corresponda a nenhum candidato ou seja branco, ele deve ser tratado como nulo. Se for inserido um texto ao invés de número, o código deve retornar uma mensagem para votar novamente.</p>
+  <p>Quando a votação for finalizada, o código deverá mostrar o vencedor, aquele com o maior número de votos e, também, a quantidade de votos de cada candidato, os brancos e nulos.</p> 
+  <hr>
+  <h2>Eleições</h2>
+  <p>Opções de voto:</p>
+  <table  border="2" style="border-collapse: collapse;">
+    <thead>
+      <tr><th>Candidato</th><th>Número</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>candidato_X</td><td>889</td></tr>
+      <tr><td>candidato_Y</td><td>847</td></tr>
+      <tr><td>candidato_Z</td><td>515</td></tr>
+      <tr><td>Voto em branco</td><td>0</td></tr>
+    </tbody>
+  </table>
+  <br>
+  <input type="button" value="Iniciar votação" onclick="votar()">
+  <div id="res"></div>
+
+  <script>
+
+    var res = document.querySelector("#res");
+    var candidato_X = 0;
+    var candidato_Y = 0;
+    var candidato_Z = 0;
+    var branco = 0;
+    var continua = true;
+
+    function votar() {
+      while (continua) {
+        var valido = false;
+        while (!valido){
+          var escolha = parseInt(prompt("Digite o número do candidato escolhido: "));
+          valido = isNumber(escolha);
+          console.log(valido)
+          if (valido) {
+            add_voto(escolha);
+            var check = true;
+            while (check) {
+              var decisao = prompt("Deseja continuar a votação? [S/N]")
+              if (decisao.toLowerCase() == "s" || decisao.toLowerCase() == "sim") {
+                check = false;
+                continua = true;
+              } else if (decisao.toLowerCase() == "n" || decisao.toLowerCase() == "nao" || decisao.toLowerCase() == "não") {
+                check = false;
+                continua = false;
+              } else {
+                alert("Resposta inválida, responda com 'S' para sim ou 'N' para não.")
+                check = true;
+              }
+            }
+          } else {
+            alert("Digite um número não um texto.");
+          }      
+        }
+      };
+      mostrarVotos();
+    };
+      
+    
+
+    function add_voto(escolha) {
+      switch (escolha) {
+        case 889:
+          candidato_X += 1;
+          break;
+        case 847:
+          candidato_Y += 1;
+          break;
+        case 515:
+          candidato_Z += 1;
+          break;
+        case 0:
+          branco += 1;
+          break;
+        default:
+          branco += 1;
+          break;
+      }
+    };
+
+    function isNumber(val) {
+      return !(isNaN(val));
+    };
+
+    function mostrarVotos() {
+      var vencedor;
+
+      var votos = [candidato_X, candidato_Y, candidato_Z]
+
+      var ordemVotos = votos.sort()
+
+      if (ordemVotos[2] == candidato_X) {
+        vencedor = "candidato_X"
+      } else if (ordemVotos[2] == candidato_Y) {
+        vencedor = "candidato_Y"
+      } else if (ordemVotos[2] == candidato_Z) {
+        vencedor = "candidato_Z"
+      }
+      res.innerHTML = `
+                        <hr>
+                        <h3>RESULTADO DA VOTAÇÃO</H3>
+                        <p>O vencedor das eleições é o ${vencedor}.</p>
+                        <table border="2" style="border-collapse: collapse;">
+                          <thead>
+                            <tr><th>Candidato</th><th>Qtde de Votos</th></tr>
+                          </thead>
+                          <tbody>
+                            <tr><td>candidato_X</td><td>${candidato_X}</td></tr>
+                            <tr><td>candidato_Y</td><td>${candidato_Y}</td></tr>
+                            <tr><td>candidato_Z</td><td>${candidato_Z}</td></tr>
+                            <tr><td>Voto em branco</td><td>${branco}</td></tr>
+                          </tbody>
+                        </table>
+                        
+      `
+    }
+  </script>
+</body>
+</html>
