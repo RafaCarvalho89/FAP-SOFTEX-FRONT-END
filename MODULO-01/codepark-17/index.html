@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePark 17</title>
+</head>
+<body>
+  <h2>Codepark 17</h2>
+  <p>Você deve criar três listas em JavaScript:</p>
+  <ol>
+    <li>para guardar os nomes de dez pessoas;</li>
+    <li>para guardar as suas idades;</li>
+    <li>para guardar as suas cores favoritas.</li>
+  </ol>
+  <p>Em seguida, imprima essas listas. Depois, faça algumas modificações, alterando uma cor e uma idade. Ao terminar, imprima novamente todas as informações das três listas.</p>
+
+  <input type="button" value="Iniciar" onclick="start()">
+  
+  <div id="res"></div>
+
+  <script>
+    
+    function start(){
+
+      var names = ["Ana", "Pedro", "Sofia", "João", "Maria", "Lucas", "Beatriz", "Miguel", "Clara", "Guilherme"];
+      var age = [25, 32, 19, 28, 30, 22, 27, 35, 21, 29];
+      var color = ["azul", "vermelho", "verde", "amarelo", "rosa", "roxo", "laranja", "preto", "branco", "marrom"];
+      var printArray = ["", "", ""];
+      var changedPrintArray = ["", "", ""];
+  
+      var res = document.querySelector("#res");
+
+      for (let i = 0; i < names.length; i++) {
+        if (i == (names.length - 1)){
+          printArray[0] += names[i] + ".";
+        } else {
+          printArray[0] += names[i] + ", ";        
+        }
+      }
+      for (let i = 0; i < age.length; i++) {
+        if (i == (age.length - 1)){
+          printArray[1] += age[i] + ".";
+        } else {
+          printArray[1] += age[i] + ", "; 
+        }
+      }
+
+      for (let i = 0; i < color.length; i++) {
+        if (i == (color.length - 1)){
+          printArray[2] += color[i] + ".";
+        } else {
+          printArray[2] += color[i] + ", "; 
+        }
+      }
+
+      var deletedAge = age.splice(5, 1, 39);
+      var deletedColor = color.splice(3, 1 , "cinza");
+
+      changedPrintArray[0] = printArray[0]
+      for (let i = 0; i < age.length; i++) {
+        if (i == (age.length - 1)){
+          changedPrintArray[1] += age[i] + ".";
+        } else {
+          changedPrintArray[1] += age[i] + ", "; 
+        }
+      }
+
+      for (let i = 0; i < color.length; i++) {
+        if (i == (color.length - 1)){
+          changedPrintArray[2] += color[i] + ".";
+        } else {
+          changedPrintArray[2] += color[i] + ", "; 
+        }
+      }
+
+      res.innerHTML = `
+                        <hr>
+                        <h3>Listas originais</h3>
+                        <p><strong>Lista de nomes:</strong> ${printArray[0]}</p>
+                        <p><strong>Lista de idades:</strong> ${printArray[1]}</p>
+                        <p><strong>Lista de cores favoritas:</strong> ${printArray[2]}</p>
+                        <h3>Listas com alterações</h3>
+                        <p>Alterando o sexto elemento da lista de idades de ${deletedAge} para ${age[5]}</p>
+                        <p>Alterando o quarto elemento da lista de cores de ${deletedColor} para ${color[3]}</p>
+                        <p><strong>Lista de nomes:</strong> ${changedPrintArray[0]}</p>
+                        <p><strong>Lista de idades:</strong> ${changedPrintArray[1]}</p>
+                        <p><strong>Lista de cores favoritas:</strong> ${changedPrintArray[2]}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
