@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePark 18</title>
+</head>
+<body>
+  <h2>CodePark 18</h2>
+  <p>Considere o array [3, 7, 9, 1, 0].</p>
+  <p>O primeiro elemento inserido foi o 3, o segundo foi o 7 e assim por diante, seguindo a ordem.</p>
+  <p>Levando em conta as três estruturas de dados (fila, lista e pilha) e as suas regras de operações, qual seria a sequência dos números removidos em cada uma delas para esvaziá-las completamente utilizando o array mencionado?</p>
+  <input type="button" value="Resposta" onclick="responder()">
+  <div id="res"></div>
+  <script>
+
+    function responder(){
+      var res = document.querySelector("#res");
+
+      var vetor = [3, 7, 9, 1, 0];
+      var ordemFila = "", ordemLista = "", ordemPilha = "" 
+      
+      for (let i = 0; i < vetor.length; i++) {
+        if (i == vetor.length - 1){
+          ordemFila += (i + 1) + "º: " + vetor[i];
+          ordemLista = ordemFila;
+        } else {
+          ordemFila += (i + 1) + "º: " + vetor[i] + ", ";
+          ordemLista = ordemFila;
+        }
+      }
+
+      for (let i = vetor.length - 1; i >= 0; i--) {
+        if (i == 0) {
+          ordemPilha += (vetor.length - i) + "º: " + vetor[i];
+        } else {
+          ordemPilha += (vetor.length - i) + "º: " + vetor[i] + ", ";
+        }
+      }console.log(ordemPilha)
+
+      res.innerHTML = `
+                        <h3>Ordem de retirada dos elementos</h3>
+                        <p><strong>Fila:</strong> ${ordemFila}</p>
+                        <p><strong>Lista:</strong> ${ordemLista} (na lista os elementos podem ser retirados na ordem que o usuário quiser)</p>
+                        <p><strong>Pilha:</strong> ${ordemPilha}</p>
+                        
+      `
+    }
+
+  </script>
+</body>
+</html>
