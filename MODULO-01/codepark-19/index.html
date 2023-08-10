@@ -6,50 +6,43 @@
   <title>CodePark 19</title>
 </head>
 <body>
-  <h2>CodePark 19</h2>
-  <p>Considere o array [3, 7, 9, 1, 0].</p>
-  <p>O primeiro elemento inserido foi o 3, o segundo foi o 7 e assim por diante, seguindo a ordem.</p>
-  <p>Levando em conta as três estruturas de dados (fila, lista e pilha) e as suas regras de operações, qual seria a sequência dos números removidos em cada uma delas para esvaziá-las completamente utilizando o array mencionado?</p>
-  <input type="button" value="Resposta" onclick="responder()">
+  <h2>CodePark 19</h2> 
+  <p>Nesta atividade, você deve criar um código em JavaScript com uma matriz bidimensional para armazenar informações sobre animais e as suas características.</p>
+  <p>Cada linha deve representar um animal e cada coluna terá as diferentes informações sobre ele, como nome, espécie e idade. </p>
+  <input type="button" value="Iniciar" onclick="start()">
+
   <div id="res"></div>
+
   <script>
-
-    function responder(){
-      var res = document.querySelector("#res");
-
-      var vetor = [3, 7, 9, 1, 0];
-      var ordemFila = "", ordemLista = "", ordemPilha = "" 
+    function start(){
       
-      for (let i = 0; i < vetor.length; i++) {
-        if (i == vetor.length - 1){
-          ordemFila += (i + 1) + "º: " + vetor[i];
-          ordemLista = ordemFila;
-        } else {
-          ordemFila += (i + 1) + "º: " + vetor[i] + ", ";
-          ordemLista = ordemFila;
+      var res = document.querySelector("#res");
+      var animals = [
+        ["Max", "Cão", 5],
+        ["Luna", "Gato", 2],
+        ["Rocky", "Tartaruga", 10],
+        ["Kiara", "Papagaio", 8]
+      ];
+      var printAnimals = "<p>Lista dos animais:</p>";
+
+      for (let i = 0; i < animals.length; i++) {
+        printAnimals += "<p>Animal " + (i + 1) + ": ";
+        for (let j = 0; j < animals[i].length; j++) {
+          switch (j){
+            case 0: 
+              printAnimals += "Nome: " + animals[i][j] + "; ";
+              break;
+            case 1: 
+              printAnimals += "Espécie: " + animals[i][j] + "; ";
+              break;
+            case 2: 
+              printAnimals += "Idade: " + animals[i][j] + "</p>";
+              break;
+          }          
         }
       }
-
-      for (let i = vetor.length - 1; i >= 0; i--) {
-        if (i == 0) {
-          ordemPilha += (vetor.length - i) + "º: " + vetor[i];
-        } else {
-          ordemPilha += (vetor.length - i) + "º: " + vetor[i] + ", ";
-        }
-      }console.log(ordemPilha)
-
-      res.innerHTML = `
-                        <h3>Ordem de retirada dos elementos</h3>
-                        <p><strong>Fila:</strong> ${ordemFila}</p>
-                        <!-- Saída : Fila: 1º: 3, 2º: 7, 3º: 9, 4º: 1, 5º: 0 -->
-                        <p><strong>Lista:</strong> ${ordemLista} (na lista os elementos podem ser retirados na ordem que o usuário quiser)</p>
-                        <!-- Saída : Lista: 1º: 3, 2º: 7, 3º: 9, 4º: 1, 5º: 0 (na lista os elementos podem ser retirados na ordem que o usuário quiser) -->
-                        <p><strong>Pilha:</strong> ${ordemPilha}</p>
-                        <!-- Saída : Pilha: 1º: 0, 2º: 1, 3º: 9, 4º: 7, 5º: 3 -->
-                        
-      `
+      res.innerHTML = printAnimals;
     }
-
   </script>
 </body>
 </html>
