@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desafio 01</title>
+</head>
+<body>
+  <h2>Desafio 01</h2>
+  <p>Desenvolver uma função ordenar que recebe um vetor qualquer e reorganiza seus valores em ordem crescente.</p>
+  <input type="button" value="Iniciar" onclick="start()">
+  <hr>
+  <div id="res"></div>
+
+  <script>
+    function start(){
+      var vetor = [];
+      var vetorOrg = [];
+      var texto = "";
+      var res = document.querySelector("#res");
+  
+      for (let i = 0; i < 5; i++) {
+        var valor = parseInt(prompt("Digite um número: "));
+        while(isNaN(valor)) {
+          valor = parseInt(prompt("Valor inválido! Digite um número válido: "));
+        }
+        vetor.push(valor);
+        vetorOrg.push(valor);
+      }
+
+      texto = "<p>Vetor digitado: [" + vetor + "]</p>";
+
+      for (let i = 0; i < vetorOrg.length; i++) {
+        for (let j = i + 1; j < vetorOrg.length; j++) {
+          if (vetorOrg[i] > vetorOrg[j]){
+            var aux = vetorOrg[i];
+            vetorOrg[i] = vetorOrg[j];
+            vetorOrg[j] = aux;
+          }
+        }
+      }
+
+      texto += "<p>Vetor em ordem crescente: [" + vetorOrg + "]</p>";
+      
+      res.innerHTML = texto;
+    }
+  
+  </script>
+</body>
+</html>
