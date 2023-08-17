@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodePark 21</title>
+</head>
+<body>
+
+  <h2>CodePark 21</h2>
+  <p>Temos o array [15, 8, 10, 25, 12, 30, 5, 20, 18, 7] e precisamos criar um código em JavaScript para encontrar o valor 20.</p>
+  <p>Para isso, temos que escolher entre realizar uma busca linear ou binária de acordo com a que for mais adequada para essa situação.</p>
+  <p>Codifique a solução mais eficiente para buscar o número 20 no array.</p>
+  <hr>
+  <label for="num">Digite o número que deseja procurar: </label>
+  <input type="number" name="num" id="num">
+  <input type="button" value="Iniciar" onclick="start()">
+
+  <div id="res"></div>
+
+  <script>
+    function start() {
+
+      var num = Number(document.querySelector("#num").value);
+      var res = document.querySelector("#res");
+  
+      var numbers = [15, 8, 10, 25, 12, 30, 5, 20, 18, 7];
+      var numIndex = 0;
+
+      for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] === num) {
+          numIndex = i + 1;
+          break;
+        } else {
+          numIndex = -1;
+        } 
+      }
+
+      if (numIndex !== -1){
+        res.innerHTML = `
+                          <h3>Resolução</h3>
+                          <p>O número ${num} foi encontrado na ${numIndex}ª posição da array.</p>
+        `;
+      } else {
+        res.innerHTML = `
+                          <h3>Resolução</h3>
+                          <p>O número ${num} não foi encontrado na array.</p>
+        `;
+      }
+
+    }
+  </script>
+  
+</body>
+</html>
