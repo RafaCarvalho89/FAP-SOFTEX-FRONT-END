@@ -1,0 +1,141 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: url(../images/cobogo-cais-do-sertao-ajust.jpg);
+  background-size: 100px;
+}
+
+header {
+  background-color: #D2C295;
+  height: 100px;
+  box-shadow: 1px 0 5px #8a7f62;
+}
+
+#logo {
+  width: 80px;
+  position: absolute;
+  margin: 20px auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+main {
+  width: 65vw;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 50px;
+}
+
+section {
+  text-align: justify;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  margin: 25px;
+  color: #977926;
+}
+
+.figure {
+  margin: 10px auto 50px auto;
+
+}
+
+.galery {
+  margin-top: 40px;
+}
+
+.final {
+  margin-bottom: 0;
+}
+
+.img {
+  width: 600px;
+  box-shadow: -20px -20px #D2C295;
+}
+
+.caption a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #977926;
+}
+
+h2 {
+  font-size: 2em;
+  color: #977926;
+  margin: 20px;
+}
+
+p {
+  font-size: 1.2em;
+}
+
+strong {
+  color: #977926;
+}
+
+#source {
+  text-align: right;
+  font-size: 0.8em;
+  margin-top: 25px;
+}
+
+#source a {
+  text-decoration: none;
+  font-weight: bolder;
+  color: #977926;
+}
+
+footer {
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: #8a7f62;
+  background-color: #D2C295;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+}
+
+#logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#logos i {
+  color: #8a7f62;
+  margin-top: 5px;
+  font-size: 1.5em;
+  transition: 1s;
+}
+
+#logos i:hover {
+  color: #ffffff;
+}
+
+footer a {
+  text-decoration: none;
+  color: #8a7f62;
+  transition: 1s;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
